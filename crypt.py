@@ -3,8 +3,8 @@ import time
 from datetime import datetime
 
 i=1
-todaytime = datetime.now()
-d8 = todaytime.strftime("%d.%m.%Y %H:%M")
+
+
 
 
 #User will choose an amount of minutes (N) between every notification of new crpyto value so time.sleep(N)
@@ -15,7 +15,9 @@ d8 = todaytime.strftime("%d.%m.%Y %H:%M")
 
 #BITCOIN VALUE RETURN
 while True:
-    time.sleep(10*60)
+    time.sleep(60)
+    todaytime = datetime.now()
+    d8 = todaytime.strftime("%d.%m.%Y %H:%M")
     r = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
     print('The current price of Bitcoin at '+ d8 +' is: $'+r.json()['bpi']['USD']['rate'])
     i+=1
